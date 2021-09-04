@@ -1,11 +1,12 @@
 package com.techreturners.exercise004;
 
-import org.junit.Ignore;
+//import org.junit.Ignore;
 import org.junit.Test;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.time.temporal.ChronoUnit;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,7 +21,7 @@ public class Exercise004Test {
         assertEquals(expected, ex004.getDateTime());
     }
 
-    @Ignore("You can remove this @ignore annotation to run the test")
+
     @Test
     public void checkGetDateTimeWhenBothDateAndTimeIsSpecified() {
 
@@ -30,7 +31,7 @@ public class Exercise004Test {
         assertEquals(expected, ex004.getDateTime());
     }
 
-    @Ignore("You can remove this @ignore annotation to run the test")
+
     @Test
     public void checkGetDateTimeWhenBothDateAndTimeIsSpecifiedWithDayRollOver() {
 
@@ -39,5 +40,15 @@ public class Exercise004Test {
 
         assertEquals(expected, ex004.getDateTime());
     }
+
+    @Test
+    public void checkGetDateTimeWhenFutureDateIsSpecified() {
+
+        Exercise004 ex004 = new Exercise004(LocalDateTime.of(2021, Month.NOVEMBER, 4, 23, 22, 0, 0));
+        LocalDateTime expected = LocalDateTime.of(2053, Month.JULY, 14, 1, 8, 40);
+
+        assertEquals(expected, ex004.getDateTime());
+    }
+
 
 }
