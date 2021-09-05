@@ -5,14 +5,12 @@ import java.util.List;
 import java.util.Locale;
 
 public class Exercise005 {
-
-    
     
     public boolean isPangram(String input) {
 
         String inputLowerCase = input.toLowerCase(Locale.ROOT);
 
-        List<String> inputCharList = new ArrayList<String>();
+        List<String> inputCharList = new ArrayList<>();
 
         // reference list for alphabets
         String alphabets = "abcdefghijklmnopqrstuvwxyz";
@@ -24,21 +22,16 @@ public class Exercise005 {
 
         }
 
-        boolean result = true;
+        boolean isPangram = true;
         //now search the input for the alphabets
         for (int i = 0; i <alphabets.length() ; i++) {
 
-            if (inputCharList.contains( alphabets.charAt(i)+"")){
+            if (!inputCharList.contains( alphabets.charAt(i)+"")){
+                isPangram = false;
+                break;
             }
-            else {
-                result = false;
-            }
-        
-        
-
-
         }
-        return result;
+        return isPangram;
 
     }
 
