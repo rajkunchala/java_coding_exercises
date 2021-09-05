@@ -49,6 +49,13 @@ public class Exercise004Test {
 
         assertEquals(expected, ex004.getDateTime());
     }
+    @Test
+    public void checkGetDateTimeWhenCurrentDateIsSpecified() {
 
+        Exercise004 ex004 = new Exercise004(LocalDate.now());
+        LocalDateTime expected = LocalDateTime.now().truncatedTo(ChronoUnit.DAYS).plusSeconds(1000000000);
+
+        assertEquals(expected, ex004.getDateTime());
+    }
 
 }
